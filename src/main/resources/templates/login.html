@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <title>会员登录</title>
-<link href="wedding-3.css" rel="stylesheet"/>
-<link href="wedding-2.css" rel="stylesheet"/>
+    <!--配置页面基础路径-->
+    <base th:href="${#request.getContextPath()+'/'}">
+<link href="css/wedding-3.css" rel="stylesheet"/>
+<link href="css/wedding-2.css" rel="stylesheet"/>
 <style>.cke{visibility:hidden;}</style>
 </head>	
 <body>
@@ -24,12 +26,13 @@
         	<div class="user-form-wrap">
             	<div class="user-form-wraps">
                 	<div class="user-form-item"><strong class="user-form-title">会员登录</strong></div>
-                    <form>
+                    <p th:text="${msg}"></p>
+                    <form method="post" action="/user/login">
                     	<div class="user-form-item">
-                        	<input class="user-input" type="text" max="15" maxlength="15" placeholder="手机号">
+                        	<input class="user-input" type="text" name="username" max="15" maxlength="15" placeholder="手机号">
                         </div>
                         <div class="user-form-item">
-                        	<input class="user-input" type="password" max="15" maxlength="15" placeholder="密码">
+                        	<input class="user-input" type="password" name="password" max="15" maxlength="15" placeholder="密码">
                         </div>
                         <div class="user-form-item">
                         	<input class="user-input user-input-adjust" type="text" max="4" placeholder="验证码"><img class="qrcode" style="cursor:pointer" src="img/proveImg.php">
@@ -42,13 +45,15 @@
                                 </span>
                             </label>
                         </div>
-                    </form>
+
                     <div class="user-form-item">
-                    	<a class="user-form-button" style="font-weight: bold;">登&nbsp;&nbsp;录</a>
+                        <input type="submit" style="font-weight: bold;" value="登 录">
+                    	<!--<a class="user-form-button" style="font-weight: bold;">登&nbsp;&nbsp;录</a>-->
                     </div>
                     <div class="user-form-item us_text_right">
                     	<span class="cos_span"><a>忘记密码?</a></span>&nbsp;&nbsp;<span class="cos_span_empty"><a>注册账号</a></span>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

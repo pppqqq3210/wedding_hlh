@@ -19,7 +19,7 @@ public class WeddingController {
     }
 
     //访问wedding.html文件的方法
-    @RequestMapping("index")
+    @RequestMapping("index.html")
     //没有@ResponseBody，springboot通过返回值去搜索html文件，返回给浏览器
     public String index(){
         //返回页面的文件名，不加后缀
@@ -27,7 +27,7 @@ public class WeddingController {
     }
 
     //返回登录页面
-    @RequestMapping("login")
+    @RequestMapping("login.html")
     public String toLogin(){
         return "login";
     }
