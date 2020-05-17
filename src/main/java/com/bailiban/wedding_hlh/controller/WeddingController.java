@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 测试控制器
+ * 页面控制器（用于直接返回页面）
  */
 @Controller
 public class WeddingController {
@@ -24,5 +24,11 @@ public class WeddingController {
     public String index(){
         //返回页面的文件名，不加后缀
         return "wedding";
+    }
+
+    //返回登录页面
+    @RequestMapping("login")
+    public String toLogin(){
+        return "login";
     }
 }
