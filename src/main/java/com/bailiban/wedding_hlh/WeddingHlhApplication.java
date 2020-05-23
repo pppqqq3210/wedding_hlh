@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 该类必须放在项目包在根目录
  */
 @SpringBootApplication
+//扫描dao接口的位置
+@MapperScan("com.bailiban.wedding_hlh.dao")
 public class WeddingHlhApplication {
 
     public static void main(String[] args) {

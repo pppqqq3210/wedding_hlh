@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--和具体的DAO接口配置起来-->
+<mapper namespace="com.bailiban.wedding_hlh.dao.UserDAO">
+    <!--将数据库的字段和实体类的字段映射起来-->
+    <resultMap id="userMap" type="User">
+        <!--id是主键，property是实体类的属性名 column是表的字段名 javaType是类型-->
+        <id property="userId" column="user_id" javaType="java.lang.Long"/>
+        <result property="userHeadPortrait" column="user_headPortrait"/>
+        <result property="userNickname" column="user_nickname"/>
+        <result property="userSex" column="user_sex"/>
+        <result property="userCity" column="user_city"/>
+        <result property="userIDcard" column="user_iDcard"/>
+        <result property="userAdd" column="user_add"/>
+        <result property="userPostcode" column="user_postcode"/>
+        <result property="userQq" column="user_qq"/>
+        <result property="userTel" column="user_tel"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="userRealname" column="user_realname"/>
+    </resultMap>
+    <!--实现查询SQL语句 id是接口中的方法名 parameterType是方法的参数类型 resultType是返回值类型 resultMap是映射类型-->
+    <select id="login" parameterType="java.lang.String" resultMap="userMap">
+                select * from tb_user where user_tel = #{username} and user_password = #{password}
+            </select>
+</mapper>

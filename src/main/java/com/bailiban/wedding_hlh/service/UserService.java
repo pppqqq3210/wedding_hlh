@@ -7,5 +7,5 @@ import com.bailiban.wedding_hlh.entity.User;
  */
 public interface UserService {
 
-    User login(String username,String password);
+    User login(String username, String password);
 }

@@ -1,40 +1,129 @@
 package com.bailiban.wedding_hlh.entity;
 
+import lombok.Data;
+
+@Data
 public class User {
 
-    //属性和input的name名称一样
-    private String username;
-    private String password;
+  private long userId;
+  private String userHeadPortrait;
+  private String userNickname;
+  private String userSex;
+  private String userCity;
+  private String userIDcard;
+  private String userAdd;
+  private String userPostcode;
+  private String userQq;
+  private String userTel;
+  private String userPassword;
+  private String userRealname;
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public long getUserId() {
+    return userId;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+  public String getUserHeadPortrait() {
+    return userHeadPortrait;
+  }
 
-    public User() {
-    }
+  public void setUserHeadPortrait(String userHeadPortrait) {
+    this.userHeadPortrait = userHeadPortrait;
+  }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+
+  public String getUserNickname() {
+    return userNickname;
+  }
+
+  public void setUserNickname(String userNickname) {
+    this.userNickname = userNickname;
+  }
+
+
+  public String getUserSex() {
+    return userSex;
+  }
+
+  public void setUserSex(String userSex) {
+    this.userSex = userSex;
+  }
+
+
+  public String getUserCity() {
+    return userCity;
+  }
+
+  public void setUserCity(String userCity) {
+    this.userCity = userCity;
+  }
+
+
+  public String getUserIDcard() {
+    return userIDcard;
+  }
+
+  public void setUserIDcard(String userIDcard) {
+    this.userIDcard = userIDcard;
+  }
+
+
+  public String getUserAdd() {
+    return userAdd;
+  }
+
+  public void setUserAdd(String userAdd) {
+    this.userAdd = userAdd;
+  }
+
+
+  public String getUserPostcode() {
+    return userPostcode;
+  }
+
+  public void setUserPostcode(String userPostcode) {
+    this.userPostcode = userPostcode;
+  }
+
+
+  public String getUserQq() {
+    return userQq;
+  }
+
+  public void setUserQq(String userQq) {
+    this.userQq = userQq;
+  }
+
+
+  public String getUserTel() {
+    return userTel;
+  }
+
+  public void setUserTel(String userTel) {
+    this.userTel = userTel;
+  }
+
+
+  public String getUserPassword() {
+    return userPassword;
+  }
+
+  public void setUserPassword(String userPassword) {
+    this.userPassword = userPassword;
+  }
+
+
+  public String getUserRealname() {
+    return userRealname;
+  }
+
+  public void setUserRealname(String userRealname) {
+    this.userRealname = userRealname;
+  }
+
 }

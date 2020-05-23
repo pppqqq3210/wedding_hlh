@@ -1,7 +1,6 @@
 package com.bailiban.wedding_hlh.service.impl;
 
 import com.bailiban.wedding_hlh.dao.UserDAO;
-import com.bailiban.wedding_hlh.dao.impl.UserDAOImpl;
 import com.bailiban.wedding_hlh.entity.User;
 import com.bailiban.wedding_hlh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
