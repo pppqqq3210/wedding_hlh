@@ -35,7 +35,8 @@
                         	<input class="user-input" type="password" name="password" max="15" maxlength="15" placeholder="密码">
                         </div>
                         <div class="user-form-item">
-                        	<input class="user-input user-input-adjust" type="text" max="4" placeholder="验证码"><img class="qrcode" style="cursor:pointer" src="img/proveImg.php">
+                            <input class="user-input user-input-adjust" name="code" type="text" max="4" placeholder="验证码">
+                            <img id="code" class="qrcode" style="cursor:pointer" src="/user/code" onclick="changeCode()">
                         </div>
                         <div class="user-form-item">
                         	<label>
@@ -158,4 +159,11 @@
     </a>
     <div id="gotop" title="返回顶部" style="display:block; background:url(img/gotop.png) -70px 0px no-repeat"></div>
 </body>
+<script type="text/javascript">
+    //修改验证码
+    function changeCode(){
+        //获得验证码图片,修改其src属性,如果src指向的url不改变，浏览器不会重新调用验证码的后台
+        document.getElementById("code").src = "/user/code?x="+Math.random();
+    }
+</script>
 </html>
