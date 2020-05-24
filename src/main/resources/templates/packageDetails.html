@@ -1,9 +1,10 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <title>套餐详情</title>
-<link href="wedding-3.css" rel="stylesheet"/>
+    <base th:href="${#request.getContextPath()+'/'}">
+<link href="css/wedding-3.css" rel="stylesheet"/>
 </head>
 	
 <body>

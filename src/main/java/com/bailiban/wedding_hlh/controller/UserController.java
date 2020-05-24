@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
@@ -49,6 +50,26 @@ public class UserController {
         model.addAttribute("msg","账号或密码错误");
         //登录不成功，跳转登录页面 forward是请求分发，不会刷新浏览器，保留数据
         return "forward:/login.html";
+    }
+
+    @RequestMapping(value = "register",method = RequestMethod.POST)
+    public String register(Model model,HttpSession session,String username,String password,String code){
+        //从session中取验证码
+        String rightCode = (String) session.getAttribute("code");
+        if(rightCode == null || code == null || !rightCode.equals(code)){
+            model.addAttribute("msg","验证码错误");
+            return "forward:/register.html";
+        }
+        //判断用户名是否存在
+        User user = userService.selectUserByTel(username);
+        if(user != null){
+            model.addAttribute("msg","用户名已经存在");
+            return "forward:/register.html";
+        }
+        //实现注册
+        userService.register(username,password);
+        //这里使用重定向跳转登录页面，redirect会刷新浏览器，不会保留注册信息，不会导致重复注册
+        return "redirect:/login.html";
     }
 
     /**
@@ -102,5 +123,16 @@ public class UserController {
         response.addHeader("Cache-Control","no-cache");
         //将验证码通过流发送给浏览器 ImageIO发送图片的工具类 参数1 图片 参数2 格式 参数3 输出流
         ImageIO.write(image,"PNG",response.getOutputStream());
+    }
+
+    @RequestMapping(value = "checkTel",method = RequestMethod.POST)
+    @ResponseBody   //和ajax交互必须加@ResponseBody，直接返回数据
+    public Boolean checkTel(String username){
+        User user = userService.selectUserByTel(username);
+        //返回手机号是否存在
+        if(user == null){
+            return false;
+        }
+        return true;
     }
 }

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>婚礼汇</title>
+    <base th:href="${#request.getContextPath()+'/'}">
 <link href="css/wedding-3.css" rel="stylesheet"/>
 </head>
 
@@ -87,7 +88,7 @@
         	<div class="button layout_fl">全部分类</div>
             <ul class="layout_clear layout_fl fl_li">
             	<li><a>首页</a></li>
-                <li><a href="field.html">婚宴场地</a></li>
+                <li><a href="/hotel/page">婚宴场地</a></li>
                 <li><a>婚纱摄影</a></li>
                 <li><a>婚庆用车</a></li>
                 <li><a>婚庆公司</a></li>
@@ -106,7 +107,7 @@
             	<div class="hm-menu">
                 	<ul id="levels">
                     	<li>
-                        	<a href="field.html">
+                        	<a href="/hotel/page">
                                 <div class="menu-item">
                                     <i class="page_icon menu-item-fl" style="background-image:url(img/Uvi52426432fj.jpg)"></i>
                                     <div class="menu-label">婚宴场地</div>

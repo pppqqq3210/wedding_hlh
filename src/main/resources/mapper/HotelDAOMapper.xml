@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--和具体的DAO接口配置起来-->
+<mapper namespace="com.bailiban.wedding_hlh.dao.HotelDAO">
+    <!--将数据库的字段和实体类的字段映射起来-->
+    <resultMap id="hotelMap" type="Hotel">
+        <!--id是主键，property是实体类的属性名 column是表的字段名 javaType是类型-->
+        <id property="hotelId" column="hotel_id" javaType="java.lang.Long"/>
+        <result property="hotelName" column="hotel_name"/>
+        <result property="hotelAddress" column="hotel_address"/>
+        <result property="hotelTel" column="hotel_tel"/>
+        <result property="hotelStar" column="hotel_star"/>
+        <!--酒店图片映射-->
+        <result property="hotelImg" column="img_add"/>
+    </resultMap>
+    <!--实现查询SQL语句 id是接口中的方法名 parameterType是方法的参数类型 resultType是返回值类型 resultMap是映射类型-->
+    <select id="selectAll" resultMap="hotelMap">
+        select h.*,i.img_add from tb_hotel h join tb_img i
+        on h.hotel_id = i.tb_hotel_hotel_id
+    </select>
+
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(*) from tb_hotel
+    </select>
+
+    <select id="selectLimit" resultMap="hotelMap" resultType="java.lang.Integer">
+        select h.*,i.img_add from tb_hotel h join tb_img i
+        on h.hotel_id = i.tb_hotel_hotel_id limit #{start},#{length}
+    </select>
+</mapper>

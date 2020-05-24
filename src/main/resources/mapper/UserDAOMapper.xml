@@ -20,6 +20,14 @@
     </resultMap>
     <!--实现查询SQL语句 id是接口中的方法名 parameterType是方法的参数类型 resultType是返回值类型 resultMap是映射类型-->
     <select id="login" parameterType="java.lang.String" resultMap="userMap">
-                select * from tb_user where user_tel = #{username} and user_password = #{password}
-            </select>
+        select * from tb_user where user_tel = #{username} and user_password = #{password}
+    </select>
+    <!--实现数据库插入功能-->
+    <insert id="register" parameterType="java.lang.String">
+        insert into tb_user(user_tel,user_password) values(#{username},#{password})
+    </insert>
+
+    <select id="selectUserByTel" parameterType="java.lang.String" resultMap="userMap">
+        select * from tb_user where user_tel = #{username}
+    </select>
 </mapper>

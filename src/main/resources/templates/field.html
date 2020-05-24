@@ -1,9 +1,15 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <title>婚宴场地</title>
-<link href="wedding-3.css" rel="stylesheet"/>
+    <base th:href="${#request.getContextPath()+'/'}">
+    <link href="css/wedding-3.css" rel="stylesheet"/>
+    <style>
+        .star{
+            background-image: url(img/oeD55470539oS.jpg);
+        }
+    </style>
 </head>
 
 <body>
@@ -124,210 +130,27 @@
             </div>
             <div class="god-gdx-wrap">
             	<ul class="god-aside-listr">
-                	<li>
+                    <!--使用th:each重复生成li-->
+                	<li th:each="hotel:${page.data}">
                     	<div class="gdx-lists-wrap layout_clear">
                         	<div class="gdx-lists-img layout_fl">
-                            	<a href="wedding.html"><img src="img/msF58469607Jg.jpg" style="display:block"></a>
+                            	<a href="wedding.html">
+                                    <img src="img/msF58469607Jg.jpg" th:src="${hotel.hotelImg}" style="display:block">
+                                </a>
                             </div>
                             <div class="gdx-lists-data">
                             	<h2>
-                                	<a href="field.html" style="font-size: 20px">重庆南温泉丽筠酒店</a>
-                                </h2>
-                                <div class="gdx-lists-local">
-                                	<span class="page_icon in_local_icon"></span>中国重庆巴南区南泉街道南泉路7号
-                                </div>
-                                <div class="gdx-lists-heart">
-                                	<span class="page_icon add-heart-out">
-                                    	<span class="page_icon add-heart-in" style="width:80%"></span>
-                                    </span>
-                                    推荐指数
-                                </div>
-                                <div class="gdx-lists-info">
-                                	<div class="gdx-lists-icon">
-                                    	<a href="field.html"><i class="page_icon in-data-Icon0"></i></a><a href="field.html"><i class="page_icon in-data-Icon1"></i></a><a href="field.html"><i class="page_icon in-data-Icon2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="gdx-lists-wrap layout_clear">
-                        	<div class="gdx-lists-img layout_fl">
-                            	<a href="wedding.html"><img src="img/msF58469607Jg.jpg" style="display:block"></a>
-                            </div>
-                            <div class="gdx-lists-data">
-                            	<h2>
-                                	<a href="field.html">重庆南温泉丽筠酒店</a>
+                                    <!--th:text绑定子标签的文字-->
+                                	<a href="field.html" style="font-size: 20px" th:text="${hotel.hotelName}">重庆南温泉丽筠酒店</a>
                                 </h2>
                                 <div class="gdx-lists-local">
                                 	<span class="page_icon in_local_icon"></span>
-                                    中国重庆巴南区南泉街道南泉路7号
+                                    <span th:text="${hotel.hotelAddress}">中国重庆巴南区南泉街道南泉路7号</span>
                                 </div>
                                 <div class="gdx-lists-heart">
-                                	<span class="page_icon add-heart-out">
-                                    	<span class="page_icon add-heart-in" style="width:80%"></span>
-                                    </span>
-                                    推荐指数
-                                </div>
-                                <div class="gdx-lists-info">
-                                	<div class="gdx-lists-icon">
-                                    	<a href="field.html"><i class="page_icon in-data-Icon0"></i></a><a href="field.html"><i class="page_icon in-data-Icon1"></i></a><a href="field.html"><i class="page_icon in-data-Icon2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="gdx-lists-wrap layout_clear">
-                        	<div class="gdx-lists-img layout_fl">
-                            	<a href="wedding.html"><img src="img/msF58469607Jg.jpg" style="display:block"></a>
-                            </div>
-                            <div class="gdx-lists-data">
-                            	<h2>
-                                	<a href="field.html">重庆南温泉丽筠酒店</a>
-                                </h2>
-                                <div class="gdx-lists-local">
-                                	<span class="page_icon in_local_icon"></span>
-                                    中国重庆巴南区南泉街道南泉路7号
-                                </div>
-                                <div class="gdx-lists-heart">
-                                	<span class="page_icon add-heart-out">
-                                    	<span class="page_icon add-heart-in" style="width:80%"></span>
-                                    </span>
-                                    推荐指数
-                                </div>
-                                <div class="gdx-lists-info">
-                                	<div class="gdx-lists-icon">
-                                    	<a href="field.html"><i class="page_icon in-data-Icon0"></i></a><a href="field.html"><i class="page_icon in-data-Icon1"></i></a><a href="field.html"><i class="page_icon in-data-Icon2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="gdx-lists-wrap layout_clear">
-                        	<div class="gdx-lists-img layout_fl">
-                            	<a href="wedding.html"><img src="img/msF58469607Jg.jpg" style="display:block"></a>
-                            </div>
-                            <div class="gdx-lists-data">
-                            	<h2>
-                                	<a href="field.html">重庆南温泉丽筠酒店</a>
-                                </h2>
-                                <div class="gdx-lists-local">
-                                	<span class="page_icon in_local_icon"></span>
-                                    中国重庆巴南区南泉街道南泉路7号
-                                </div>
-                                <div class="gdx-lists-heart">
-                                	<span class="page_icon add-heart-out">
-                                    	<span class="page_icon add-heart-in" style="width:80%"></span>
-                                    </span>
-                                    推荐指数
-                                </div>
-                                <div class="gdx-lists-info">
-                                	<div class="gdx-lists-icon">
-                                    	<a href="field.html"><i class="page_icon in-data-Icon0"></i></a><a href="field.html"><i class="page_icon in-data-Icon1"></i></a><a href="field.html"><i class="page_icon in-data-Icon2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="gdx-lists-wrap layout_clear">
-                        	<div class="gdx-lists-img layout_fl">
-                            	<a href="wedding.html"><img src="img/msF58469607Jg.jpg" style="display:block"></a>
-                            </div>
-                            <div class="gdx-lists-data">
-                            	<h2>
-                                	<a href="field.html">重庆南温泉丽筠酒店</a>
-                                </h2>
-                                <div class="gdx-lists-local">
-                                	<span class="page_icon in_local_icon"></span>
-                                    中国重庆巴南区南泉街道南泉路7号
-                                </div>
-                                <div class="gdx-lists-heart">
-                                	<span class="page_icon add-heart-out">
-                                    	<span class="page_icon add-heart-in" style="width:80%"></span>
-                                    </span>
-                                    推荐指数
-                                </div>
-                                <div class="gdx-lists-info">
-                                	<div class="gdx-lists-icon">
-                                    	<a href="field.html"><i class="page_icon in-data-Icon0"></i></a><a href="field.html"><i class="page_icon in-data-Icon1"></i></a><a href="field.html"><i class="page_icon in-data-Icon2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="gdx-lists-wrap layout_clear">
-                        	<div class="gdx-lists-img layout_fl">
-                            	<a href="wedding.html"><img src="img/msF58469607Jg.jpg" style="display:block"></a>
-                            </div>
-                            <div class="gdx-lists-data">
-                            	<h2>
-                                	<a href="field.html">重庆南温泉丽筠酒店</a>
-                                </h2>
-                                <div class="gdx-lists-local">
-                                	<span class="page_icon in_local_icon"></span>
-                                    中国重庆巴南区南泉街道南泉路7号
-                                </div>
-                                <div class="gdx-lists-heart">
-                                	<span class="page_icon add-heart-out">
-                                    	<span class="page_icon add-heart-in" style="width:80%"></span>
-                                    </span>
-                                    推荐指数
-                                </div>
-                                <div class="gdx-lists-info">
-                                	<div class="gdx-lists-icon">
-                                    	<a href="field.html"><i class="page_icon in-data-Icon0"></i></a><a href="field.html"><i class="page_icon in-data-Icon1"></i></a><a href="field.html"><i class="page_icon in-data-Icon2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="gdx-lists-wrap layout_clear">
-                        	<div class="gdx-lists-img layout_fl">
-                            	<a href="wedding.html"><img src="img/msF58469607Jg.jpg" style="display:block"></a>
-                            </div>
-                            <div class="gdx-lists-data">
-                            	<h2>
-                                	<a href="field.html">重庆南温泉丽筠酒店</a>
-                                </h2>
-                                <div class="gdx-lists-local">
-                                	<span class="page_icon in_local_icon"></span>
-                                    中国重庆巴南区南泉街道南泉路7号
-                                </div>
-                                <div class="gdx-lists-heart">
-                                	<span class="page_icon add-heart-out">
-                                    	<span class="page_icon add-heart-in" style="width:80%"></span>
-                                    </span>
-                                    推荐指数
-                                </div>
-                                <div class="gdx-lists-info">
-                                	<div class="gdx-lists-icon">
-                                    	<a href="field.html"><i class="page_icon in-data-Icon0"></i></a><a href="field.html"><i class="page_icon in-data-Icon1"></i></a><a href="field.html"><i class="page_icon in-data-Icon2"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                    	<div class="gdx-lists-wrap layout_clear">
-                        	<div class="gdx-lists-img layout_fl">
-                            	<a href="wedding.html"><img src="img/msF58469607Jg.jpg" style="display:block"></a>
-                            </div>
-                            <div class="gdx-lists-data">
-                            	<h2>
-                                	<a href="field.html">重庆南温泉丽筠酒店</a>
-                                </h2>
-                                <div class="gdx-lists-local">
-                                	<span class="page_icon in_local_icon"></span>
-                                    中国重庆巴南区南泉街道南泉路7号
-                                </div>
-                                <div class="gdx-lists-heart">
-                                	<span class="page_icon add-heart-out">
-                                    	<span class="page_icon add-heart-in" style="width:80%"></span>
+                                	<span class="page_icon add-heart-out star">
+                                        <!--th:style绑定子标签的样式-->
+                                    	<span class="page_icon add-heart-in star" th:style="${hotel.hotelStar}"></span>
                                     </span>
                                     推荐指数
                                 </div>
@@ -405,7 +228,24 @@
                 </ul>
             </div>
             <div class="ma_page">
-            	<a class="disabled"><</a><a class="cur">1</a><a>2</a><a>3</a><a>4</a><span>...</span><a>11</a><a class="next">></a>   
+                <!--上一页-->
+<!--                <a class="next" th:if="${page.currentPage > 1}"-->
+<!--                   th:href="'/hotel/page?currentPage='+${page.currentPage - 1}"><</a>-->
+<!--                <a th:if="${page.currentPage == 1}"-->
+<!--                   class="disabled">></a>-->
+                <a th:class="(${page.currentPage > 1})?'next':'disabled'"
+                   th:href="(${page.currentPage > 1})?'/hotel/page?currentPage='+${page.currentPage - 1}:''">
+                    <
+                </a>
+                <!--页数超链接-->
+                <a th:each="i:${#numbers.sequence(1,page.pageCount)}" th:text="${i}"
+                   th:href="'/hotel/page?currentPage='+${i}"
+                   th:class="(${i}==${page.currentPage})?'cur':''">1</a>
+                <!--下一页-->
+                <a class="next" th:if="${page.currentPage < page.pageCount}"
+                   th:href="'/hotel/page?currentPage='+${page.currentPage + 1}">></a>
+                <a th:if="${page.currentPage == page.pageCount}"
+                   class="disabled">></a>
             </div>
         </div>
     </div>

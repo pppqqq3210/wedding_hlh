@@ -23,4 +23,14 @@ public class UserServiceImpl implements UserService {
         //调用dao层的对象
         return userDAO.login(username,password);
     }
+
+    @Override
+    public void register(String username, String password) {
+        userDAO.register(username,password);
+    }
+
+    @Override
+    public User selectUserByTel(String username) {
+        return userDAO.selectUserByTel(username);
+    }
 }

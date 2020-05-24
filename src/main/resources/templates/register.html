@@ -1,11 +1,13 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <title>会员注册</title>
-<link href="wedding-3.css" rel="stylesheet"/>
-<link href="wedding-2.css" rel="stylesheet"/>
+    <base th:href="${#request.getContextPath()+'/'}">
+<link href="css/wedding-3.css" rel="stylesheet"/>
+<link href="css/wedding-2.css" rel="stylesheet"/>
 </head>
+<body>
 	<div id="public-toolbar" class="hidden_active user_adjust_public">
     	<div class="layout_center layout_clear">
         	<div class="page-logo layout_fl">
@@ -22,15 +24,17 @@
         	<div class="user-form-wrap">
             	<div class="user-form-wraps">
                 	<div class="user-form-item"><strong class="user-form-title">会员注册</strong></div>
-                    <form>
+                    <span id="msg" th:text="${msg}" style="color:red"></span>
+                    <form action="/user/register" method="post">
                     	<div class="user-form-item">
-                        	<input class="user-input" type="text" max="15" maxlength="15" placeholder="手机号">
+                        	<input class="user-input" name="username" type="text" max="15" maxlength="15" placeholder="手机号">
                         </div>
                         <div class="user-form-item">
-                        	<input class="user-input" type="password" max="15" maxlength="15" placeholder="密码">
+                        	<input class="user-input" name="password" type="password" max="15" maxlength="15" placeholder="密码">
                         </div>
                         <div class="user-form-item">
-                        	<input class="user-input user-input-adjust" type="text" max="4" placeholder="短信验证码"><a class="qrcode">发送验证码</a>
+                            <input class="user-input user-input-adjust" name="code" type="text" max="4" placeholder="验证码">
+                            <img id="code" class="qrcode" style="cursor:pointer" src="/user/code" onclick="changeCode()">
                         </div>
                         <div class="user-form-item">
                         	<label>
@@ -40,10 +44,12 @@
                                 </span>
                             </label>
                         </div>
-                    </form>
+
                     <div class="user-form-item">
-                    	<a class="user-form-button" style="font-weight: bold;">立即注册</a>
+                        <input type="submit" value="立即注册" class="user-form-button" style="font-weight: bold;">
+                    	<!--<a class="user-form-button" style="font-weight: bold;">立即注册</a>-->
                     </div>
+                    </form>
                     <div class="user-form-item us_text_right">
                     	<span class="cos_span"><a>已有账户?立即登录</a></span>
                     </div>
@@ -150,6 +156,37 @@
     	<span id="askus">&nbsp;</span>
     </a>
     <div id="gotop" title="返回顶部" style="display:block; background:url(img/gotop.png) -70px 0px no-repeat"></div>
-<body>
+<!--引入JQuery-->
+    <script src="js/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        //修改验证码
+        function changeCode(){
+            //获得验证码图片,修改其src属性,如果src指向的url不改变，浏览器不会重新调用验证码的后台
+            document.getElementById("code").src = "/user/code?x="+Math.random();
+        }
+        //给手机号的输入框添加失去焦点事件 blur
+        $("[name=username]:text").blur(
+            function(){
+                //获得手机号 [属性名=值]:类型 val()是获得值
+                var uname = $("[name=username]:text").val();
+                //把手机号发送到后台进行判断
+                $.ajax({
+                    url:"http://localhost:8080/user/checkTel",//后台url
+                    type:"post",                              //请求类型 post/get
+                    data:{username:uname},                    //提交参数
+                    async:true,                               //是否异步 推荐true异步
+                    success:function(result){                 //后台返回数据后的处理
+                        //获得java后台的返回值
+                        if(result == true){
+                            //通过id找到span，修改里面的内容
+                            $("#msg").text("用户名已经存在").css("color","red");
+                        }else{
+                            $("#msg").text("用户名可以使用").css("color","green");
+                        }
+                    }
+                });
+            }
+        );
+    </script>
 </body>
 </html>

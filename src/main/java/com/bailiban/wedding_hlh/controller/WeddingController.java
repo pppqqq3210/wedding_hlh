@@ -31,4 +31,10 @@ public class WeddingController {
     public String toLogin(){
         return "login";
     }
+
+    //返回注册页面
+    @RequestMapping("register.html")
+    public String toRegister(){
+        return "register";
+    }
 }

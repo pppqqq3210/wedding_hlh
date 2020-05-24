@@ -1,10 +1,11 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <title>订单详情</title>
-<link href="wedding-3.css" rel="stylesheet"/>
-<link href="wedding-2.css" rel="stylesheet"/>
+    <base th:href="${#request.getContextPath()+'/'}">
+<link href="css/wedding-3.css" rel="stylesheet"/>
+<link href="css/wedding-2.css" rel="stylesheet"/>
 </head>
 <body>
 	<div id="public-navbar">
@@ -187,7 +188,7 @@
                         	<tr>
                                 <th><span class="cos_span">商品</span></th>
                                 <th><span class="cos_span">属性</span></th>
-                                <th><span class="cos_span">数量</span></th
+                                <th><span class="cos_span">数量</span></th>
                                 <th><span class="cos_span">总金额</span></th>>
                                 <th><span class="cos_span">订单状态</span></th>
                                 <th><span class="cos_span">操作</span></th>
@@ -317,5 +318,6 @@
     	<span id="askus">&nbsp;</span>
     </a>
     <div id="gotop" title="返回顶部" style="display:block; background:url(img/gotop.png) -70px 0px no-repeat"></div>
+    </div>
 </body>
 </html>
